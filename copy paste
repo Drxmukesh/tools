@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Text</title>
+    <style>
+        .hidden-text {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <p id="prank-text" oncopy="handleCopy(event)">
+        can you copy the text 
+    </p>
+    <span id="hidden-text" class="hidden-text">
+        Surprise! You cant copy 
+    </span>
+
+    <script>
+        function handleCopy(event) {
+            // Prevent default copy behavior
+            event.preventDefault();
+
+            // Set custom copied text
+            const hiddenText = document.getElementById('hidden-text').innerText;
+            event.clipboardData.setData('text/plain', hiddenText);
+        }
+    </script>
+</body>
+</html>
